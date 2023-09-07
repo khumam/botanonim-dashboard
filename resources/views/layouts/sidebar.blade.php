@@ -10,19 +10,11 @@
                 </a>
             </li>
             <li class="nav-item dropdown">
-                <a href="{{ route('admin.course.index') }}">
-                    <span class="icon-holder">
-                        <i class="anticon anticon-team"></i>
-                    </span>
-                    <span class="title">Course Management</span>
-                </a>
-            </li>
-            <li class="nav-item dropdown">
                 <a href="{{ route('admin.user.index') }}">
                     <span class="icon-holder">
                         <i class="anticon anticon-team"></i>
                     </span>
-                    <span class="title">Kelola User</span>
+                    <span class="title">Kelola User Dashboard</span>
                 </a>
             </li>
             <li class="nav-item dropdown">
