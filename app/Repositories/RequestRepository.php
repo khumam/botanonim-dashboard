@@ -5,9 +5,11 @@ namespace App\Repositories;
 use App\Interfaces\RequestInterface;
 use App\Models\Request;
 use App\Models\UserBot;
+use App\Notifications\TelegramNotification;
 use App\Traits\RedirectNotification;
 use Carbon\Carbon;
 use DB;
+use Illuminate\Support\Facades\Auth;
 
 class RequestRepository extends Repository implements RequestInterface
 {
@@ -52,6 +54,8 @@ class RequestRepository extends Repository implements RequestInterface
             ]);
             Request::where('user_id', $userId)->delete();
             DB::commit();
+            $message = '🤖 Hallo akun kamu sudah aktif, kamu sekarang bisa menggunakan bot. Selamat berbincang!.';
+            Auth::user()->notify(new TelegramNotification($userId, $message));
             return true;
         } catch (\Exception $err) {
             DB::rollBack();
