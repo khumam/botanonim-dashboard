@@ -18,6 +18,14 @@
                 </a>
             </li>
             <li class="nav-item dropdown">
+                <a href="{{ route('admin.report.index') }}">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-user-add"></i>
+                    </span>
+                    <span class="title">Kelola Report</span>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
                 <a href="{{ route('admin.userbot.index') }}">
                     <span class="icon-holder">
                         <i class="anticon anticon-smile"></i>

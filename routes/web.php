@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\HomeController;
@@ -46,7 +47,12 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('request', RequestController::class)->only(['index', 'show']);
         Route::post('request/list', [RequestController::class, 'list'])->name('request.list');
         Route::post('request/approve/{userId}', [RequestController::class, 'approve'])->name('request.approve');
+
         Route::resource('userbot', UserBotController::class)->only(['index', 'show']);
         Route::post('userbot/list', [UserBotController::class, 'list'])->name('userbot.list');
+
+        Route::resource('report', ReportController::class)->only(['index', 'show']);
+        Route::post('report/list', [ReportController::class, 'list'])->name('report.list');
+        Route::post('report/banned', [ReportController::class, 'banned'])->name('report.banned');
     });
 });
