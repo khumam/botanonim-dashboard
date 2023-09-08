@@ -38,7 +38,7 @@ class AdminNoteController extends Controller
      */
     public function destroy(AdminNote $adminNote)
     {
-        $act = $this->adminNoteInterface->destroy($adminNote->id);
+        $act = $this->adminNoteInterface->destroy(['id' => $adminNote->id]);
         return $this->sendRedirectTo($act, 'Berhasil menghapus catatan', 'Gagal menghapus catatan');
     }
 

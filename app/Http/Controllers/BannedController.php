@@ -40,7 +40,7 @@ class BannedController extends Controller
      */
     public function destroy(Banned $banned)
     {
-        $act = $this->bannedInterface->destroy($banned->id);
+        $act = $this->bannedInterface->destroy(['id' => $banned->id]);
         $message = '🤖 Kamu dapat kesempatan untuk menggunakan kembali bot ini. Jangan sampai disalah gunakan atau nanti akan diblacklist!.';
         Auth::user()->notify(new TelegramNotification($banned->user_id, $message));
         return $this->sendRedirectTo($act, 'Berhasil menghapus user dari daftar banned', 'Gagal menghapus user dari daftar banned');
