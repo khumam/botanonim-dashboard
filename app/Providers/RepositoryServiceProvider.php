@@ -2,11 +2,13 @@
 
 namespace App\Providers;
 
+use App\Interfaces\BannedInterface;
 use App\Interfaces\ReportInterface;
 use App\Interfaces\RequestInterface;
 use App\Interfaces\UserBotInterface;
 use App\Interfaces\UserInterface;
 use App\Interfaces\UserSettingInterface;
+use App\Repositories\BannedRepository;
 use App\Repositories\ReportRepository;
 use App\Repositories\RequestRepository;
 use App\Repositories\UserBotRepository;
@@ -28,6 +30,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(RequestInterface::class, RequestRepository::class);
         $this->app->bind(UserBotInterface::class, UserBotRepository::class);
         $this->app->bind(ReportInterface::class, ReportRepository::class);
+        $this->app->bind(BannedInterface::class, BannedRepository::class);
     }
 
     /**

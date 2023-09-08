@@ -20,9 +20,17 @@
             <li class="nav-item dropdown">
                 <a href="{{ route('admin.report.index') }}">
                     <span class="icon-holder">
-                        <i class="anticon anticon-user-add"></i>
+                        <i class="anticon anticon-alert"></i>
                     </span>
                     <span class="title">Kelola Report</span>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="{{ route('admin.banned.index') }}">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-exclamation-circle"></i>
+                    </span>
+                    <span class="title">Kelola Banned</span>
                 </a>
             </li>
             <li class="nav-item dropdown">
@@ -30,7 +38,7 @@
                     <span class="icon-holder">
                         <i class="anticon anticon-smile"></i>
                     </span>
-                    <span class="title">Kelola User Bor</span>
+                    <span class="title">Kelola User Bot</span>
                 </a>
             </li>
             <li class="nav-item dropdown">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BannedController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\RequestController;
@@ -54,5 +55,8 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('report', ReportController::class)->only(['index', 'show']);
         Route::post('report/list', [ReportController::class, 'list'])->name('report.list');
         Route::post('report/banned', [ReportController::class, 'banned'])->name('report.banned');
+
+        Route::resource('banned', BannedController::class)->only(['index', 'show', 'destroy']);
+        Route::post('banned/list', [BannedController::class, 'list'])->name('banned.list');
     });
 });

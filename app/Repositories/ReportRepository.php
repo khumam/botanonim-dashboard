@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Interfaces\ReportInterface;
+use App\Models\Banned;
 use App\Models\Report;
 use App\Notifications\TelegramNotification;
 use App\Traits\RedirectNotification;
@@ -43,9 +44,11 @@ class ReportRepository extends Repository implements ReportInterface
         DB::beginTransaction();
         try {
             $report = Report::where('id', $reportId)->first();
-
-            // TODO: Add banned user
-        
+            Banned::create([
+                'user_id' => $report->reported_id,
+                'chat_id' => $report->reported_id,
+                'reason' => $report->reason,
+            ]);
             $message = '🤖 Kamu dapat surat cinta dari admin. Karena terindikasi melanggar aturan bot, kamu dibanned dan tidak dapat melakukan aktivitas apapun di dalam bot ini.';
             Auth::user()->notify(new TelegramNotification($report->reported_id, $message));
             DB::commit();
