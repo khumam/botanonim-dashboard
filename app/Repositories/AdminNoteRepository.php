@@ -14,7 +14,7 @@ class AdminNoteRepository extends Repository implements AdminNoteInterface
     {
         $this->model = new AdminNote();
         $this->fillable = $this->model->getFillable();
-        $this->datatableSourceData = $this->model->latest()->get();
+        $this->datatableSourceData = $this->model->latest()->with('user')->get();
         $this->datatableRoute = 'admin.adminnote';
         $this->datatableAction = ['SHOW'];
         $this->datatableHeader = [
@@ -30,5 +30,6 @@ class AdminNoteRepository extends Repository implements AdminNoteInterface
                 return $data->user->first_name . " " . $data->user->last_name;
             }
         ];
+        $this->datatableRawColumns = ['username', 'fullname'];
     }
 }

@@ -18,7 +18,7 @@ class ReportRepository extends Repository implements ReportInterface
     {
         $this->model = new Report();
         $this->fillable = $this->model->getFillable();
-        $this->datatableSourceData = $this->getAll();
+        $this->datatableSourceData = $this->model->with(['reported', 'reportedby'])->get();
         $this->datatableRoute = 'admin.report';
         $this->datatableHeader = [
             'Reported' => 'reported',
@@ -37,6 +37,7 @@ class ReportRepository extends Repository implements ReportInterface
                 return "$data->reportedby->first_name $data->reportedby->last_name";
             }
         ];
+        $this->datatableRawColumns = ['reported', 'reported_username', 'reported_by'];
     }
 
     public function banned($reportId)
