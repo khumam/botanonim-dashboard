@@ -34,6 +34,14 @@
                 </a>
             </li>
             <li class="nav-item dropdown">
+                <a href="{{ route('admin.adminnote.index') }}">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-book"></i>
+                    </span>
+                    <span class="title">Catatan User</span>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
                 <a href="{{ route('admin.userbot.index') }}">
                     <span class="icon-holder">
                         <i class="anticon anticon-smile"></i>
