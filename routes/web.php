@@ -1,12 +1,14 @@
 <?php
 
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\RequestController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\TokenController;
+use App\Http\Controllers\UserBotController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserSettingController;
 use Illuminate\Support\Facades\Route;
@@ -40,5 +42,11 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('admin')->as('admin.')->group(function () {
         Route::resource('user', UserController::class)->only(['index', 'show', 'destroy', 'edit']);
         Route::post('user/list', [UserController::class, 'list'])->name('user.list');
+
+        Route::resource('request', RequestController::class)->only(['index', 'show']);
+        Route::post('request/list', [RequestController::class, 'list'])->name('request.list');
+        Route::post('request/approve/{userId}', [RequestController::class, 'approve'])->name('request.approve');
+        Route::resource('userbot', UserBotController::class)->only(['index', 'show']);
+        Route::post('userbot/list', [UserBotController::class, 'list'])->name('userbot.list');
     });
 });

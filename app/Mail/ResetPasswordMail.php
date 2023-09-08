@@ -30,8 +30,8 @@ class ResetPasswordMail extends Mailable
     public function build()
     {
         return $this
-            ->from('support@barradev.id', 'BARRA DEV STUDIO')
-            ->subject('Reset Password Barra Dev')
+            ->from('support@barradev.id', 'UNNES Anonim Bot STUDIO')
+            ->subject('Reset Password UNNES Anonim Bot')
             ->view('email.resetpassword');
     }
 }
