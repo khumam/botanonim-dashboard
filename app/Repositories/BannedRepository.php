@@ -16,7 +16,7 @@ class BannedRepository extends Repository implements BannedInterface
         $this->fillable = $this->model->getFillable();
         $this->datatableSourceData = $this->model->latest()->with('user')->get();
         $this->datatableRoute = 'admin.banned';
-        $this->datatableAction = ['SHOW'];
+        $this->datatableAction = ['SHOW', 'DELETE'];
         $this->datatableHeader = [
             'Username' => 'username',
             'Fullname' => 'fullname',
@@ -28,7 +28,7 @@ class BannedRepository extends Repository implements BannedInterface
                 return $data->user->username;
             },
             'fullname' => function ($data) {
-                return "$data->user->first_name $data->user->last_name";
+                return $data->user->first_name . " " . $data->user->last_name;
             }
         ];
         $this->datatableRawColumns = ['username', 'fullname'];
