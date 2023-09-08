@@ -14,9 +14,9 @@ class AdminNoteRepository extends Repository implements AdminNoteInterface
     {
         $this->model = new AdminNote();
         $this->fillable = $this->model->getFillable();
-        $this->datatableSourceData = $this->model->latest()->with('user')->get();
+        $this->datatableSourceData = $this->model->with('user')->latest()->get();
         $this->datatableRoute = 'admin.adminnote';
-        $this->datatableAction = ['SHOW'];
+        $this->datatableAction = ['SHOW', 'DELETE'];
         $this->datatableHeader = [
             'Username' => 'username',
             'Fullname' => 'fullname',
