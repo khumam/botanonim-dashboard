@@ -48,7 +48,7 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('user', UserController::class)->only(['index', 'show', 'destroy', 'edit']);
         Route::post('user/list', [UserController::class, 'list'])->name('user.list');
 
-        Route::resource('request', RequestController::class)->only(['index', 'show']);
+        Route::resource('request', RequestController::class)->only(['index', 'show', 'destroy']);
         Route::post('request/list', [RequestController::class, 'list'])->name('request.list');
         Route::post('request/approve/{userId}', [RequestController::class, 'approve'])->name('request.approve');
 

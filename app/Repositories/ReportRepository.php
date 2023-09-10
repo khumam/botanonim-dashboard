@@ -22,18 +22,22 @@ class ReportRepository extends Repository implements ReportInterface
         $this->datatableRoute = 'admin.report';
         $this->datatableAction = [];
         $this->datatableHeader = [
-            'Reported' => 'reported',
             'Reported Username' => 'reported_username',
+            'Reported' => 'reported',
+            'Reported By Username' => 'reported_by_username',
             'Reported By' => 'reported_by',
             'Reason' => 'reason',
             'Banned' => 'banned'
         ];
         $this->datatableColumns = [
+            'reported_username' => function ($data) {
+                return $data->reported->username;
+            },
             'reported' => function ($data) {
                 return $data->reported->first_name . " " . $data->reported->last_name;
             },
-            'reported_username' => function ($data) {
-                return $data->reported->username;
+            'reported_by_username' => function ($data) {
+                return $data->reportedby->username;
             },
             'reported_by' => function ($data) {
                 return $data->reportedby->first_name . " " . $data->reportedby->last_name;

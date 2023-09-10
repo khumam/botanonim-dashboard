@@ -13,4 +13,5 @@ interface RequestInterface
 	public function buildDatatableTable();
 	public function buildDatatableScript();
     public function approve($userId);
+    public function destroy(array $condition);
 }

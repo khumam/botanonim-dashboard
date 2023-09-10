@@ -21,7 +21,7 @@ class RequestRepository extends Repository implements RequestInterface
         $this->fillable = $this->model->getFillable();
         $this->datatableSourceData = $this->model->with('user')->latest()->get();
         $this->datatableRoute = 'admin.request';
-        $this->datatableAction = ['SHOW'];
+        $this->datatableAction = ['SHOW', 'DELETE'];
         $this->datatableHeader = [
             'User ID' => 'user_id',
             'Chat ID' => 'chat_id',

@@ -64,4 +64,10 @@ class RequestController extends Controller
         $act = $this->requestInterface->approve($userId);
         return $this->sendRedirectTo($act, 'Berhasil approve user baru', 'Gagal approve user baru');
     }
+
+    public function destroy($id)
+    {
+        $act = $this->requestInterface->destroy(['id' => $id]);
+        return $this->sendRedirectTo($act, 'Berhasil menghapus request', 'Gagal menghapus request');
+    }
 }
