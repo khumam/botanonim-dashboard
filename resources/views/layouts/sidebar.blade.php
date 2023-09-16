@@ -34,6 +34,14 @@
                 </a>
             </li>
             <li class="nav-item dropdown">
+                <a href="{{ route('admin.ads.index') }}">
+                    <span class="icon-holder">
+                        <i class="anticon anticon-exclamation-circle"></i>
+                    </span>
+                    <span class="title">Kelola Iklan</span>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
                 <a href="{{ route('admin.adminnote.index') }}">
                     <span class="icon-holder">
                         <i class="anticon anticon-book"></i>

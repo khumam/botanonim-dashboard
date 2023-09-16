@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdController;
 use App\Http\Controllers\AdminNoteController;
 use App\Http\Controllers\BannedController;
 use App\Http\Controllers\CourseController;
@@ -64,5 +65,8 @@ Route::middleware(['auth'])->group(function () {
 
         Route::resource('adminnote', AdminNoteController::class)->only(['index', 'show', 'destroy']);
         Route::post('adminnote/list', [AdminNoteController::class, 'list'])->name('adminnote.list');
+
+        Route::resource('ads', AdController::class);
+        Route::post('ads/list', [AdController::class, 'list'])->name('ads.list');
     });
 });
