@@ -36,7 +36,7 @@
             <li class="nav-item dropdown">
                 <a href="{{ route('admin.ads.index') }}">
                     <span class="icon-holder">
-                        <i class="anticon anticon-exclamation-circle"></i>
+                        <i class="anticon anticon-notification"></i>
                     </span>
                     <span class="title">Kelola Iklan</span>
                 </a>

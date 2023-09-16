@@ -6,7 +6,7 @@
 						</div>
 						<div class="m-l-15">
 								<h2 class="m-b-0" wire:poll="update">{{ number_format($count) }}</h2>
-								<p class="m-b-0 text-muted">User</p>
+								<p class="m-b-0 text-muted">Users</p>
 						</div>
 				</div>
 		</div>
