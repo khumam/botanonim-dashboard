@@ -53,9 +53,13 @@ class AdRepository extends Repository implements AdInterface
 
     public function upload($request)
     {
-        $myimage = $request->image->getClientOriginalName();
-        $path = "storage/media/" . md5($myimage) . '.' . $request->image->getClientOriginalExtension();
-        $request->image->move('/home/u5480949/public_html/botanonim.com/unnes/', $path);
-        return $path;
+        try {
+            $myimage = $request->image->getClientOriginalName();
+            $path = md5($myimage) . '.' . $request->image->getClientOriginalExtension();
+            $request->image->move('/home/u5480949/public_html/botanonim.com/unnes/storage/media', $path);
+            return $path;
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+        }
     }
 }
