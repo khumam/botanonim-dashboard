@@ -43,7 +43,7 @@
 			<div class="card-body">
 				<div class="row">
 					<div class="col">
-						<img src="{{ \Storage::url($ads->image) }}" class="img-fluid" alt="">
+						<img src="{{ \Storage::url('media/' . $ads->image) }}" class="img-fluid" alt="">
 					</div>
 					<div class="col">
 						<p class="mt-5">{{ $ads->content }}</p>
