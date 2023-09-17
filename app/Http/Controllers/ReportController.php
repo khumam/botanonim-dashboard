@@ -51,6 +51,6 @@ class ReportController extends Controller
     {
         $reportId = $request->report_id;
         $act = $this->reportInterface->banned($reportId);
-        return $this->sendRedirectTo($act, 'Berhasil banned user', 'Gagal banned user');
+        return $this->sendRedirectTo($act, 'Berhasil banned user', 'Gagal banned user', route('admin.report.index'));
     }
 }

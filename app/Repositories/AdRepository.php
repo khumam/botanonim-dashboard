@@ -40,6 +40,7 @@ class AdRepository extends Repository implements AdInterface
         if ($request->hasFile('image')) {
             // $request->image = $this->uploadFile($request, 'image', 'public/media', true);
             $request->image = $this->upload($request);
+            $this->deletePhoto($this->get($condition));
         } else {
             $asset = $this->get($condition);
             $request->image = $asset->image;
@@ -60,6 +61,15 @@ class AdRepository extends Repository implements AdInterface
             return $path;
         } catch (\Exception $e) {
             dd($e->getMessage());
+        }
+    }
+
+    public function deletePhoto($src)
+    {
+        try {
+            unlink('/home/u5480949/public_html/botanonim.com/unnes/storage/media/' . $src->image);
+        } catch (\Exception $err) {
+            dd($err);
         }
     }
 }

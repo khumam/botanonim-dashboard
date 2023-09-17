@@ -69,7 +69,7 @@
 									<div class="form-group">
 										<img src="{{ \Storage::url('media/' . $ads->image) }}" class="img-fluid mb-3" alt="">
 										<label for="image">Image</label>
-										<input type="file" id="image" name="image" class="form-control @error('image') is-invalid @enderror" placeholder="End" value="{{ old('image') }}" required>
+										<input type="file" id="image" name="image" class="form-control @error('image') is-invalid @enderror" placeholder="End" value="{{ old('image') }}">
 										@error('image')
 											<div class="invalid-feedback" role="alert">
 												{{ $message }}

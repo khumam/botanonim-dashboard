@@ -20,7 +20,7 @@ class ReportRepository extends Repository implements ReportInterface
         $this->fillable = $this->model->getFillable();
         $this->datatableSourceData = $this->model->with(['reported', 'reportedby'])->get();
         $this->datatableRoute = 'admin.report';
-        $this->datatableAction = [];
+        $this->datatableAction = ['SHOW'];
         $this->datatableHeader = [
             'Reported Username' => 'reported_username',
             'Reported' => 'reported',
