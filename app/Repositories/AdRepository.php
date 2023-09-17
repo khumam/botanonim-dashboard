@@ -30,14 +30,16 @@ class AdRepository extends Repository implements AdInterface
             'text' => $request->cta_text,
             'url' => $request->cta_link
         ]]);
-        $request->image = $this->uploadFile($request, 'image', 'public/media');
+        // $request->image = $this->uploadFile($request, 'image', 'public/media');
+        $request->image = $this->upload($request);
         return $this->model::create($this->build($request));
     }
 
     public function update($request, array $condition)
     {
         if ($request->hasFile('image')) {
-            $request->image = $this->uploadFile($request, 'image', 'public/media', true);
+            // $request->image = $this->uploadFile($request, 'image', 'public/media', true);
+            $request->image = $this->upload($request);
         } else {
             $asset = $this->get($condition);
             $request->image = $asset->image;
@@ -47,5 +49,13 @@ class AdRepository extends Repository implements AdInterface
             'url' => $request->cta_link
         ]]);
         return $this->model::where($condition)->update($this->build($request, true));
+    }
+
+    public function upload($request)
+    {
+        $myimage = $request->image->getClientOriginalName();
+        $path = "storage/media/" . md5($myimage) . '.' . $request->image->getClientOriginalExtension();
+        $request->image->move('/home/u5480949/public_html/botanonim.com/unnes/', $path);
+        return $path;
     }
 }
