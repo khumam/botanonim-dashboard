@@ -67,7 +67,7 @@ return [
 
     'links' => [
         // public_path('storage') => '../storage/app/public',
-        '/home/u5480949/public_html/botanonim.com/unnes/storage' => '../storage/app/public',
+        '/home/u5480949/public_html/botanonim.com/unnes/storage/' => '../storage/app/public',
     ],
 
 ];
