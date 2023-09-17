@@ -9,12 +9,14 @@ use Livewire\Component;
 class MessageUserLivewire extends Component
 {
     public $chatId;
+    public $reportedDate = '';
     public $messages = [];
     public $date = '';
 
     public function mount()
     {
-        $this->date = Carbon::parse(Carbon::now())->format('Y-m-d');
+        $this->reportedDate = Carbon::parse($this->reportedDate)->format('Y-m-d');
+        $this->date = $this->reportedDate;
         $this->filter();
     }
 

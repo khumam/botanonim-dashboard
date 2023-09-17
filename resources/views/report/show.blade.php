@@ -43,7 +43,7 @@
 </div>
 <div class="row">
 	<div class="col-md-12">
-		<livewire:message-user-livewire :chatId="$report->reported->id"></livewire:message-user-livewire>
+		<livewire:message-user-livewire :chatId="$report->reported->id" :reportedDate="$report->created_at"></livewire:message-user-livewire>
 	</div>
 </div>
 @endsection
