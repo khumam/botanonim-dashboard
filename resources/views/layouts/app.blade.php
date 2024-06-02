@@ -26,7 +26,7 @@
 				<div class="d-flex flex-column justify-content-between w-100">
 					<div class="container d-flex h-100">@yield('content')</div>
 					<div class="d-none d-md-flex p-h-40 justify-content-between">
-						<span class="">Copyright © {{ date("y") }} UNNES Anonim Bot</span>
+						<span class="">Copyright © {{ date("Y") }} UNNES Anonim Bot</span>
 						<ul class="list-inline">
 							<li class="list-inline-item">
 								<a class="text-dark text-link" href="">Legal</a>

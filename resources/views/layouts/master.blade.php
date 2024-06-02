@@ -27,7 +27,7 @@
 					<footer class="footer">
 						<div class="footer-content">
 							<p class="m-b-0">
-								Copyright © {{ date("y") }} UNNES Anonim Bot. All rights
+								Copyright © {{ date("Y") }} UNNES Anonim Bot. All rights
 								reserved.
 							</p>
 							<span>

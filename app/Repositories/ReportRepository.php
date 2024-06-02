@@ -56,7 +56,7 @@ class ReportRepository extends Repository implements ReportInterface
     {
         DB::beginTransaction();
         try {
-            $report = Report::where('id', $reportId)->first();
+            $report = Report::where('id', $reportId)->firstOrFail();
             Banned::create([
                 'user_id' => $report->reported_id,
                 'chat_id' => $report->reported_id,
