@@ -92,6 +92,7 @@
 											<div class="form-group">
 												<label for="cta_link">CTA link</label>
 												<input type="text" id="cta_link" name="cta_link" class="form-control @error('cta_link') is-invalid @enderror" placeholder="End" value="{{ $cta[0]->url }}" required>
+												<small>Please only update the url on ?redirect=url</small>
 												@error('cta_link')
 													<div class="invalid-feedback" role="alert">
 														{{ $message }}

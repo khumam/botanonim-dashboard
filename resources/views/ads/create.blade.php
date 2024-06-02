@@ -67,7 +67,7 @@
 									</div>
 									<div class="form-group">
 										<label for="image">Image</label>
-										<input type="file" id="image" name="image" class="form-control @error('image') is-invalid @enderror" placeholder="End" value="{{ old('image') }}" required>
+										<input type="file" id="image" name="image" class="form-control @error('image') is-invalid @enderror" placeholder="End" value="{{ old('image') }}">
 										@error('image')
 											<div class="invalid-feedback" role="alert">
 												{{ $message }}

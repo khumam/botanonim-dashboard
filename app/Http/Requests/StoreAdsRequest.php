@@ -27,7 +27,7 @@ class StoreAdsRequest extends FormRequest
             'customer' => ['required'],
             'customer_contact' => ['required'],
             'content' => ['required'],
-            'image' => ['required'],
+            'image' => ['nullable'],
             'cta_text' => ['required'],
             'cta_link' => ['required'],
             'start_at' => ['required'],

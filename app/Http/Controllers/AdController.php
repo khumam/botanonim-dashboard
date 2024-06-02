@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreAdsRequest;
 use App\Http\Requests\UpdateAdsRequest;
 use App\Interfaces\AdInterface;
+use App\Models\Ads;
 use App\Traits\RedirectNotification;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -50,7 +51,16 @@ class AdController extends Controller
      */
     public function store(StoreAdsRequest $request)
     {
+        $request->views = 0;
+        $request->clicks = 0;
         $act = $this->adInterface->store($request);
+
+        $updateCTALink = route('ads.redirect', $act->id) . '?redirect=' . $request->cta_link;
+        $newMetadata = json_encode([[
+            'text' => $request->cta_text,
+            'url' => $updateCTALink,
+        ]]);
+        Ads::where('id', $act->id)->update(['metadata' => $newMetadata]);
         return $this->sendRedirectTo($act, 'Berhasil menambahkan iklan baru', 'Gagal menambahkan iklan baru', route('admin.ads.index'));
     }
 
@@ -114,5 +124,17 @@ class AdController extends Controller
     public function list(Request $request)
     {
         return ($request->ajax()) ? $this->adInterface->datatable() : null;
+    }
+
+    public function redirect(Request $request, $id)
+    {
+        $redirect = $request->redirect;
+        $ad = $this->adInterface->get(['id' => $id]);
+
+        Ads::where('id', $id)->update([
+            'clicks' => $ad->clicks + 1
+        ]);
+
+        return redirect($redirect);
     }
 }

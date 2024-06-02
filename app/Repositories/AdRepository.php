@@ -31,7 +31,10 @@ class AdRepository extends Repository implements AdInterface
             'url' => $request->cta_link
         ]]);
         // $request->image = $this->uploadFile($request, 'image', 'public/media');
-        $request->image = $this->upload($request);
+        if ($request->image !== null) {
+            $request->image = $this->upload($request);
+        }
+
         return $this->model::create($this->build($request));
     }
 

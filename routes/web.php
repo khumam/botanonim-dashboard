@@ -31,6 +31,7 @@ use Symfony\Component\HttpFoundation\ServerBag;
 
 Route::get('/', [HomeController::class, 'report']);
 Route::get('/login', [HomeController::class, 'welcome']);
+Route::get('/ads/redirect/{id}', [AdController::class, 'redirect'])->name('ads.redirect');
 
 Auth::routes([
     'register' => false
