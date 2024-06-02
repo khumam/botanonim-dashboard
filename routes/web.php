@@ -29,7 +29,8 @@ use Symfony\Component\HttpFoundation\ServerBag;
 |
 */
 
-Route::get('/', [HomeController::class, 'welcome']);
+Route::get('/', [HomeController::class, 'report']);
+Route::get('/login', [HomeController::class, 'welcome']);
 
 Auth::routes([
     'register' => false

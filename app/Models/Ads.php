@@ -16,6 +16,8 @@ class Ads extends Model
         'start_at',
         'end_at',
         'customer',
-        'customer_contact'
+        'customer_contact',
+        'views',
+        'clicks',
     ];
 }

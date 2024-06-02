@@ -28,6 +28,14 @@
 							<td>CTA</td>
 							<td>{{ $cta[0]->text }}<br>{{ $cta[0]->url }}</td>
 						</tr>
+						<tr>
+							<td>Views</td>
+							<td>{{ number_format($ads->views) }}</td>
+						</tr>
+						<tr>
+							<td>Clicks</td>
+							<td>{{ number_format($ads->clicks) }}</td>
+						</tr>
 					</table>
 				</div>
 			</div>
